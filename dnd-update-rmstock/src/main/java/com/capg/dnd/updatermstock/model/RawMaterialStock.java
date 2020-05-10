@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 public class RawMaterialStock {
 @Id
-private String orderId;
+private long orderId;
 private String name;
 private double pricePerUnit;
 private double quantityValue;
@@ -24,7 +24,7 @@ private String qualityCheck;
 private Date processDate;
 
 
-public RawMaterialStock(String orderId, String name, double pricePerUnit, double quantityValue, String quantityUnit,
+public RawMaterialStock(long orderId, String name, double pricePerUnit, double quantityValue, String quantityUnit,
 double price, String warehouseId, Date deliveryDate, Date manufactuingDate, Date expiryDate,
 String qualityCheck, Date processDate) {
 super();
@@ -42,11 +42,11 @@ this.qualityCheck = qualityCheck;
 this.processDate = processDate;
 }
 
-public String getOrderId() {
+public long getOrderId() {
 return orderId;
 }
 
-public void setOrderId(String orderId) {
+public void setOrderId(long orderId) {
 this.orderId = orderId;
 }
 

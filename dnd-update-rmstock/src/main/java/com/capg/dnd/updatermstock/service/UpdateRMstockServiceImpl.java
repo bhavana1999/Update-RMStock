@@ -10,32 +10,32 @@ import com.capg.dnd.updatermstock.model.RawMaterialStock;
 @Service
 public class UpdateRMstockServiceImpl implements IUpdateRMStockService {
 
-	@Autowired
-	IupdatermstockDAO repo;
-	
-	public RawMaterialStock addRawMaterialStock(RawMaterialStock stock) {
-		return repo.save(stock);
-	}
-	
-	public boolean deleteRawMaterialStock(String orderId) {
-		repo.deleteById(orderId);
-		return (!repo.existsById(orderId));
-	}
-	
-	public RawMaterialStock getRawMaterialStockDetails(String orderId) {
-		return repo.getOne(orderId);
-	}
-	
-	public List<RawMaterialStock> getAllRawMaterialStockDetails(){
-		return repo.findAll();
-	}
+@Autowired
+IupdatermstockDAO repo;
 
-	public RawMaterialStock updateRawMaterialStock(RawMaterialStock newstock) {
-		// TODO Auto-generated method stub
-		RawMaterialStock oldstock=repo.getOne(newstock.getOrderId());
-		oldstock.setManufactuingDate(newstock.getManufactuingDate());
-		oldstock.setExpiryDate(newstock.getExpiryDate());
-		oldstock.setQualityCheck(newstock.getQualityCheck());
-		return repo.save(newstock);
-	}
+public RawMaterialStock addRawMaterialStock(RawMaterialStock stock) {
+return repo.save(stock);
+}
+
+public boolean deleteRawMaterialStock(long orderId) {
+repo.deleteById(orderId);
+return (   !repo.existsById(orderId));
+}
+
+public RawMaterialStock getRawMaterialStockDetails(long orderId) {
+return repo.getOne(orderId);
+}
+
+public List<RawMaterialStock> getAllRawMaterialStockDetails(){
+return repo.findAll();
+}
+
+public RawMaterialStock updateRawMaterialStock(RawMaterialStock newstock) {
+// TODO Auto-generated method stub
+RawMaterialStock oldstock=repo.getOne(newstock.getOrderId());
+oldstock.setManufactuingDate(newstock.getManufactuingDate());
+oldstock.setExpiryDate(newstock.getExpiryDate());
+oldstock.setQualityCheck(newstock.getQualityCheck());
+return repo.save(newstock);
+}
 }
